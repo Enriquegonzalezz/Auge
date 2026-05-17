@@ -75,7 +75,7 @@ export default function MidSection() {
       </div>
 
       {/* Bottom half: Gallery carousel */}
-      <div className="w-full h-[50vh] bg-white flex flex-col justify-center py-6">
+      <div className="w-full h-[50vh] md:h-[60vh] bg-white flex flex-col justify-center py-6">
         <div className="w-full max-w-[1200px] mx-auto pl-4 md:px-10 flex flex-col h-full justify-center">
         <h3 className="text-black text-xl font-light text-center mb-6">Galería</h3>
         
