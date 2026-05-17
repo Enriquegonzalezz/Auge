@@ -69,34 +69,37 @@ const categories: Category[] = [
 export default function CategoriesSection() {
   const [selectedCategory, setSelectedCategory] = useState(categories[0].name);
   const contentRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
+  const mobileContentRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
 
   useEffect(() => {
-    Object.keys(contentRefs.current).forEach((id) => {
-      const element = contentRefs.current[id];
-      if (!element) return;
+    [contentRefs, mobileContentRefs].forEach((refs) => {
+      Object.keys(refs.current).forEach((id) => {
+        const element = refs.current[id];
+        if (!element) return;
 
-      if (id === selectedCategory) {
-        gsap.to(element, {
-          height: "auto",
-          opacity: 1,
-          duration: 0.4,
-          ease: "power2.out",
-        });
-      } else {
-        gsap.to(element, {
-          height: 0,
-          opacity: 0,
-          duration: 0.3,
-          ease: "power2.in",
-        });
-      }
+        if (id === selectedCategory) {
+          gsap.to(element, {
+            height: "auto",
+            opacity: 1,
+            duration: 0.4,
+            ease: "power2.out",
+          });
+        } else {
+          gsap.to(element, {
+            height: 0,
+            opacity: 0,
+            duration: 0.3,
+            ease: "power2.in",
+          });
+        }
+      });
     });
   }, [selectedCategory]);
 
   return (
     <section id="categorias" className="relative w-screen min-h-screen md:h-screen flex flex-col md:items-center md:justify-center bg-[#1B1B1D] p-4 md:p-8">
-      {/* Top Image */}
-      <div className="absolute top-0 left-0 right-0 w-full h-[50%] z-0">
+      {/* Top Image - Desktop only */}
+      <div className="hidden md:block absolute top-0 left-0 right-0 w-full h-[50%] z-0">
         <Image
           src="/hero auge.png"
           alt="Top banner"
@@ -106,64 +109,87 @@ export default function CategoriesSection() {
         />
       </div>
 
-      {/* Mobile Carousel */}
-      <div className="sm:hidden relative flex items-center w-full max-w-[100vw] overflow-x-auto no-scrollbar z-10 mt-20">
-        <div className="flex flex-nowrap gap-3 pb-4 px-4 w-max">
-          {categories.map((category) => (
-            <div
-              key={category.name}
-              className="shrink-0 w-[85vw] snap-start snap-always bg-[#1E1E20] rounded-lg p-4"
+      {/* Mobile Expandible List */}
+      <div className="sm:hidden w-full flex flex-col gap-3 z-10 px-4 py-8">
+        <h2 className="text-white text-2xl font-light mb-2">Categorías</h2>
+        {categories.map((category) => (
+          <div
+            key={category.name}
+            className={`transition-all duration-300 ${
+              selectedCategory === category.name
+                ? "bg-[#1E1E20] text-white z-10"
+                : "bg-[#1E1E20] text-white hover:bg-[#2A2A2D] z-20"
+            }`}
+            style={{
+              borderRadius: "12px 20px 20px 12px",
+              width: "fit-content",
+            }}
+          >
+            <button
+              onClick={() => setSelectedCategory(category.name)}
+              className="text-left text-sm px-7 py-4 font-medium"
             >
-              <button
-                onClick={() => setSelectedCategory(category.name)}
-                className="w-full text-left text-white font-semibold mb-3 hover:text-zinc-300 transition-colors"
-              >
-                {category.name}
-              </button>
-              <p className="text-white text-xs leading-relaxed mb-3">
-                {category.description}
-              </p>
-              {category.materials && (
-                <div className="mb-2">
-                  <h4 className="text-xs font-semibold text-zinc-400 mb-1">Materiales:</h4>
-                  <ul className="list-disc list-inside text-xs space-y-0.5">
-                    {category.materials.map((material, idx) => (
-                      <li key={idx} className="text-white">{material}</li>
-                    ))}
-                  </ul>
+              {category.name}
+            </button>
+            <div
+              ref={(el) => {
+                mobileContentRefs.current[category.name] = el;
+              }}
+              className="overflow-hidden pointer-events-none"
+              style={{ height: 0, opacity: 0 }}
+            >
+              <div className="mt-2 px-7 pb-4 space-y-3 pointer-events-none">
+                <p className="text-sm leading-relaxed">
+                  {category.description}
+                </p>
+
+                <div className="space-y-3">
+                  {category.materials && (
+                    <div>
+                      <h4 className="text-xs font-semibold mb-1">Materiales:</h4>
+                      <ul className="list-disc list-inside text-sm space-y-0.5">
+                        {category.materials.map((material, idx) => (
+                          <li key={idx}>{material}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+
+                  {category.karats && (
+                    <div>
+                      <h4 className="text-xs font-semibold mb-1">Kilataje:</h4>
+                      <ul className="list-disc list-inside text-sm space-y-0.5">
+                        {category.karats.map((karat, idx) => (
+                          <li key={idx}>{karat}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+
+                  {category.gems && (
+                    <div>
+                      <h4 className="text-xs font-semibold mb-1">Gemas:</h4>
+                      <ul className="list-disc list-inside text-sm space-y-0.5">
+                        {category.gems.map((gem, idx) => (
+                          <li key={idx}>{gem}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
                 </div>
-              )}
-              {category.karats && (
-                <div className="mb-2">
-                  <h4 className="text-xs font-semibold text-zinc-400 mb-1">Kilataje:</h4>
-                  <ul className="list-disc list-inside text-xs space-y-0.5">
-                    {category.karats.map((karat, idx) => (
-                      <li key={idx} className="text-white">{karat}</li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-              {category.gems && (
-                <div className="mb-3">
-                  <h4 className="text-xs font-semibold text-zinc-400 mb-1">Gemas:</h4>
-                  <ul className="list-disc list-inside text-xs space-y-0.5">
-                    {category.gems.map((gem, idx) => (
-                      <li key={idx} className="text-white">{gem}</li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-              <a
-                href="https://api.whatsapp.com/message/BHBXUFOB7IERH1?autoload=1&app_absent=0&utm_source=ig"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full inline-block px-3 py-2 border border-white text-white text-xs tracking-widest uppercase hover:bg-white hover:text-black transition-all duration-300 text-center"
-              >
-                CONTÁCTANOS
-              </a>
+
+                <a
+                  href="https://api.whatsapp.com/message/BHBXUFOB7IERH1?autoload=1&app_absent=0&utm_source=ig"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full inline-block px-7 py-2 border border-white text-white text-xs tracking-widest uppercase hover:bg-white hover:text-black transition-all duration-300 text-center mt-3 pointer-events-auto"
+                >
+                  CONTÁCTANOS
+                </a>
+              </div>
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
 
       <div className="hidden md:flex flex-col md:flex-row w-full max-w-7xl md:h-[80vh] bg-[#0F0F0F] rounded-3xl z-1 overflow-hidden">
