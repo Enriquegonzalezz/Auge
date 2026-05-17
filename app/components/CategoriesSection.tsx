@@ -127,7 +127,7 @@ export default function CategoriesSection() {
           >
             <button
               onClick={() => setSelectedCategory(category.name)}
-              className="text-left text-sm px-7 py-4 font-medium"
+              className="text-left text-sm px-7 py-4 font-medium w-full"
             >
               {category.name}
             </button>
