@@ -111,7 +111,7 @@ export default function CategoriesSection() {
 
       {/* Mobile Expandible List */}
       <div className="sm:hidden w-full flex flex-col gap-3 z-10 px-4 py-8">
-        <h2 className="text-white text-2xl font-light mb-2">Categorías</h2>
+        <h2 className="text-white text-3xl md:text-4xl font-light mb-2">Categorías</h2>
         {categories.map((category) => (
           <div
             key={category.name}
@@ -127,7 +127,7 @@ export default function CategoriesSection() {
           >
             <button
               onClick={() => setSelectedCategory(category.name)}
-              className="text-left text-sm px-7 py-4 font-medium w-full"
+              className="text-left text-base px-7 py-4 font-medium w-full"
             >
               {category.name}
             </button>
@@ -139,15 +139,15 @@ export default function CategoriesSection() {
               style={{ height: 0, opacity: 0 }}
             >
               <div className="mt-2 px-7 pb-4 space-y-3 pointer-events-none">
-                <p className="text-sm leading-relaxed">
+                <p className="text-base leading-relaxed">
                   {category.description}
                 </p>
 
                 <div className="space-y-3">
                   {category.materials && (
                     <div>
-                      <h4 className="text-xs font-semibold mb-1">Materiales:</h4>
-                      <ul className="list-disc list-inside text-sm space-y-0.5">
+                      <h4 className="text-base font-semibold mb-1">Materiales:</h4>
+                      <ul className="list-disc list-inside text-base space-y-0.5">
                         {category.materials.map((material, idx) => (
                           <li key={idx}>{material}</li>
                         ))}
@@ -157,8 +157,8 @@ export default function CategoriesSection() {
 
                   {category.karats && (
                     <div>
-                      <h4 className="text-xs font-semibold mb-1">Kilataje:</h4>
-                      <ul className="list-disc list-inside text-sm space-y-0.5">
+                      <h4 className="text-base font-semibold mb-1">Kilataje:</h4>
+                      <ul className="list-disc list-inside text-base space-y-0.5">
                         {category.karats.map((karat, idx) => (
                           <li key={idx}>{karat}</li>
                         ))}
@@ -168,8 +168,8 @@ export default function CategoriesSection() {
 
                   {category.gems && (
                     <div>
-                      <h4 className="text-xs font-semibold mb-1">Gemas:</h4>
-                      <ul className="list-disc list-inside text-sm space-y-0.5">
+                      <h4 className="text-base font-semibold mb-1">Gemas:</h4>
+                      <ul className="list-disc list-inside text-base space-y-0.5">
                         {category.gems.map((gem, idx) => (
                           <li key={idx}>{gem}</li>
                         ))}
@@ -182,7 +182,7 @@ export default function CategoriesSection() {
                   href="https://api.whatsapp.com/message/BHBXUFOB7IERH1?autoload=1&app_absent=0&utm_source=ig"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full inline-block px-7 py-2 border border-white text-white text-xs tracking-widest uppercase hover:bg-white hover:text-black transition-all duration-300 text-center mt-3 pointer-events-auto"
+                  className="w-full inline-block px-7 py-2 border border-white text-white text-sm tracking-widest uppercase hover:bg-white hover:text-black transition-all duration-300 text-center mt-3 pointer-events-auto"
                 >
                   CONTÁCTANOS
                 </a>
@@ -194,7 +194,7 @@ export default function CategoriesSection() {
 
       <div className="hidden md:flex flex-col md:flex-row w-full max-w-7xl md:h-[80vh] bg-[#0F0F0F] rounded-3xl z-1 overflow-hidden">
         <div className="w-full md:w-1/2 p-6 md:p-8 flex flex-col md:h-full">
-          <h2 className="text-white text-2xl font-light mb-6">Categorías</h2>
+          <h2 className="text-white text-3xl md:text-4xl font-light mb-6">Categorías</h2>
           <div className="flex flex-col gap-3 overflow-y-auto flex-1 pr-2" style={{ scrollbarWidth: "thin", scrollbarColor: "#2A2A2D transparent" }}>
             {categories.map((category) => (
               <div
@@ -211,7 +211,7 @@ export default function CategoriesSection() {
               >
                 <button
                   onClick={() => setSelectedCategory(category.name)}
-                  className="text-left text-sm px-7 py-4 w-full"
+                  className="text-left text-base px-7 py-4 w-full"
                 >
                   {category.name}
                 </button>
@@ -224,15 +224,15 @@ export default function CategoriesSection() {
                   style={{ height: 0, opacity: 0 }}
                 >
                   <div className="mt-2 px-7 pb-4 space-y-3 pointer-events-none">
-                    <p className="text-sm leading-relaxed">
+                    <p className="text-base leading-relaxed">
                       {category.description}
                     </p>
 
                     <div className="flex justify-around gap-4 ">
                       {category.materials && (
                         <div>
-                          <h4 className="text-xs font-semibold mb-1">Materiales:</h4>
-                          <ul className="list-disc list-inside text-sm space-y-0.5">
+                          <h4 className="text-base font-semibold mb-1">Materiales:</h4>
+                          <ul className="list-disc list-inside text-base space-y-0.5">
                             {category.materials.map((material, idx) => (
                               <li key={idx}>{material}</li>
                             ))}
@@ -244,8 +244,8 @@ export default function CategoriesSection() {
 
                       {category.karats && (
                         <div>
-                          <h4 className="text-xs text-left font-semibold mb-1">Kilataje:</h4>
-                          <ul className="list-disc list-inside text-sm space-y-0.5">
+                          <h4 className="text-base text-left font-semibold mb-1">Kilataje:</h4>
+                          <ul className="list-disc list-inside text-base space-y-0.5">
                             {category.karats.map((karat, idx) => (
                               <li key={idx}>{karat}</li>
                             ))}
@@ -257,8 +257,8 @@ export default function CategoriesSection() {
 
                       {category.gems && (
                         <div>
-                          <h4 className="text-xs font-semibold mb-1">Gemas:</h4>
-                          <ul className="list-disc list-inside text-sm space-y-0.5">
+                          <h4 className="text-base font-semibold mb-1">Gemas:</h4>
+                          <ul className="list-disc list-inside text-base space-y-0.5">
                             {category.gems.map((gem, idx) => (
                               <li key={idx}>{gem}</li>
                             ))}
@@ -271,7 +271,7 @@ export default function CategoriesSection() {
                       href="https://api.whatsapp.com/message/BHBXUFOB7IERH1?autoload=1&app_absent=0&utm_source=ig"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="mt-2 inline-block px-5 py-2 border border-white text-white text-xs tracking-widest uppercase hover:bg-white hover:text-black transition-all duration-300 pointer-events-auto text-center"
+                      className="mt-2 inline-block px-5 py-2 border border-white text-white text-sm tracking-widest uppercase hover:bg-white hover:text-black transition-all duration-300 pointer-events-auto text-center"
                     >
                       CONTÁCTANOS
                     </a>

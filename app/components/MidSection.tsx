@@ -55,17 +55,17 @@ export default function MidSection() {
         <div className="absolute inset-0 flex items-center">
         <div className="w-full max-w-[1200px] mx-auto px-6 md:px-10">
         <div className="bg-white p-5 md:p-[40px] w-[75vw] md:max-w-[17vw] md:w-auto shadow-md rounded-[4px]">
-          <h2 className="text-black text-xl font-semibold leading-tight mb-2">
+          <h2 className="text-black text-2xl font-semibold leading-tight mb-2">
             Absolutamente inigualable
           </h2>
-          <p className="text-zinc-600 text-xs leading-relaxed mb-4">
+          <p className="text-zinc-600 text-sm leading-relaxed mb-4">
             Diseñamos momentos que no se repiten, detalles que no se olvidan.
           </p>
           <a
             href="https://api.whatsapp.com/message/BHBXUFOB7IERH1?autoload=1&app_absent=0&utm_source=ig"
             target="_blank"
             rel="noopener noreferrer"
-            className="border border-black text-black text-[10px] tracking-widest uppercase px-4 py-2 hover:bg-black hover:text-white transition-all duration-300 inline-block text-center"
+            className="border border-black text-black text-xs tracking-widest uppercase px-4 py-2 hover:bg-black hover:text-white transition-all duration-300 inline-block text-center"
           >
             CONTÁCTANOS
           </a>
@@ -77,7 +77,7 @@ export default function MidSection() {
       {/* Bottom half: Gallery carousel */}
       <div className="w-full h-[50vh] md:h-[60vh] bg-white flex flex-col justify-center py-6">
         <div className="w-full max-w-[1200px] mx-auto pl-4 md:px-10 flex flex-col h-full justify-center">
-        <h3 className="text-black text-xl font-light text-center mb-6">Galería</h3>
+        <h3 className="text-black text-3xl md:text-4xl font-light text-center ">Galería</h3>
         
         {/* Scroll Helper - Desktop only */}
         <div className="hidden md:flex justify-center mb-4">

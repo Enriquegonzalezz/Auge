@@ -25,26 +25,26 @@ export default function HeroSection() {
         <nav className="flex items-center justify-center gap-6 md:gap-16 py-5 px-4 md:px-8">
           <a
             href="#"
-            className="hidden md:block text-white text-sm tracking-[0.2em] uppercase font-medium hover:text-white/70 transition-colors"
+            className="hidden md:block text-white text-base tracking-[0.2em] uppercase font-medium hover:text-white/70 transition-colors"
           >
             Inicio
           </a>
           <a
             href="#categorias"
-            className="hidden md:block text-white text-sm tracking-[0.2em] uppercase font-medium hover:text-white/70 transition-colors"
+            className="hidden md:block text-white text-base tracking-[0.2em] uppercase font-medium hover:text-white/70 transition-colors"
           >
             Productos
           </a>
           <Image src="/logo.svg" alt="AUGE" width={55} height={34} priority style={{ width: "auto", height: "auto" }} />
           <a
             href="#galeria"
-            className="hidden md:block text-white text-sm tracking-[0.2em] uppercase font-medium hover:text-white/70 transition-colors"
+            className="hidden md:block text-white text-base tracking-[0.2em] uppercase font-medium hover:text-white/70 transition-colors"
           >
             Galería
           </a>
           <a
             href="#contacto"
-            className="hidden md:block text-white text-sm tracking-[0.2em] uppercase font-medium hover:text-white/70 transition-colors"
+            className="hidden md:block text-white text-base tracking-[0.2em] uppercase font-medium hover:text-white/70 transition-colors"
           >
             Contacto
           </a>
@@ -53,21 +53,21 @@ export default function HeroSection() {
 
       {/* Center Content */}
       <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-white text-center">
-        <p className="text-xs tracking-[0.6em] uppercase font-light mb-3">
+        <p className="text-sm tracking-[0.6em] uppercase font-light mb-3">
           AUGE
         </p>
-        <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-[0.12em] uppercase mb-3 px-4">
+        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-[0.12em] uppercase mb-3 px-4">
           LA IMPORTANCIA DEL DETALLE
         </h1>
-        <p className="text-[10px] tracking-[0.5em] uppercase font-light">
-          VALENCIA-CARABOBO
+        <p className="text-base tracking-[0.5em] uppercase font-light">
+          VALENCIA-VENEZUELA
         </p>
       </div>
 
       {/* Footer Button */}
       <div className="absolute bottom-12 left-0 right-0 z-10 flex justify-center">
-        <button className="border border-white/80 text-white text-xs tracking-[0.35em] uppercase py-3 px-10 hover:bg-white hover:text-black transition-all duration-300 cursor-pointer">
-          EXPLORAR
+        <button className="border border-white text-white text-sm tracking-widest uppercase px-8 py-3 hover:bg-white hover:text-black transition-all duration-300">
+          CONTÁCTANOS
         </button>
       </div>
     </section>

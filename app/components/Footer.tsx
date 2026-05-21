@@ -5,14 +5,14 @@ export default function Footer() {
     <footer id="contacto" className="w-full bg-[#0F0F0F] px-6 pt-12 md:px-16">
       <div className="max-w-[1200px] mx-auto">
         {/* Title */}
-        <h2 className="text-white text-2xl md:text-3xl font-light text-center mb-8">
+        <h2 className="text-white text-3xl md:text-4xl font-light text-center mb-8">
           Contáctanos
         </h2>
 
         {/* Main card */}
         <div className="bg-[#1A1A1A] rounded-t-xl px-8 py-10">
           {/* Header: Tagline */}
-          <p className="text-white text-base md:text-lg font-light text-center mb-8">
+          <p className="text-white text-lg md:text-xl font-light text-center mb-8">
             Haz tus sueños realidad, contáctanos
           </p>
 
@@ -25,40 +25,66 @@ export default function Footer() {
 
             {/* Teléfono */}
             <div className="flex flex-col items-center gap-1">
-              <span className="text-zinc-400 text-xs font-semibold tracking-wide uppercase">
+              <span className="text-zinc-400 text-sm font-semibold tracking-wide uppercase">
                 Teléfono
               </span>
-              <span className="text-white text-sm">0414-3412189</span>
+              <a
+                href="https://api.whatsapp.com/message/BHBXUFOB7IERH1?autoload=1&app_absent=0&utm_source=ig"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white text-base hover:text-zinc-300 transition-colors"
+              >
+                0414-3412189
+              </a>
             </div>
 
             {/* WhatsApp */}
             <div className="flex flex-col items-center gap-1">
-              <span className="text-zinc-400 text-xs font-semibold tracking-wide uppercase">
+              <span className="text-zinc-400 text-sm font-semibold tracking-wide uppercase">
                 WhatsApp
               </span>
-              <span className="text-white text-sm">0414-3412189</span>
+              <a
+                href="https://api.whatsapp.com/message/BHBXUFOB7IERH1?autoload=1&app_absent=0&utm_source=ig"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white text-base hover:text-zinc-300 transition-colors"
+              >
+                0414-3412189
+              </a>
             </div>
 
             {/* Correo */}
             <div className="flex flex-col items-center gap-1">
-              <span className="text-zinc-400 text-xs font-semibold tracking-wide uppercase">
+              <span className="text-zinc-400 text-sm font-semibold tracking-wide uppercase">
                 Correo
               </span>
-              <span className="text-white text-sm">joyeriaauge@gmail.com</span>
+              <a
+                href="mailto:joyeriaauge@gmail.com"
+                className="text-white text-base hover:text-zinc-300 transition-colors"
+              >
+                joyeriaauge@gmail.com
+              </a>
             </div>
 
             {/* Redes Sociales */}
             <div className="flex flex-col items-center gap-1">
-              <span className="text-zinc-400 text-xs font-semibold tracking-wide uppercase">
+              <span className="text-zinc-400 text-sm font-semibold tracking-wide uppercase">
                 Redes Sociales
               </span>
-              <span className="text-white text-sm">@auge_vzla</span>
+              <a
+                href="https://instagram.com/auge_vzla"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white text-base hover:text-zinc-300 transition-colors"
+              >
+                @auge_vzla
+              </a>
             </div>
           </div>
 
           {/* Bottom border + Copyright */}
           <div className="border-t border-zinc-700 pt-4">
-            <p className="text-zinc-500 text-xs text-center">
+            <p className="text-zinc-500 text-sm text-center">
               Auge 2026, todos los derechos reservados
             </p>
           </div>
