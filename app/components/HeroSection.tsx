@@ -66,9 +66,14 @@ export default function HeroSection() {
 
       {/* Footer Button */}
       <div className="absolute bottom-12 left-0 right-0 z-10 flex justify-center">
-        <button className="border border-white text-white text-sm tracking-widest uppercase px-8 py-3 hover:bg-white hover:text-black transition-all duration-300">
+        <a
+          href="https://wa.me/584143412189"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="border border-white text-white text-sm tracking-widest uppercase px-8 py-3 hover:bg-white hover:text-black transition-all duration-300"
+        >
           CONTÁCTANOS
-        </button>
+        </a>
       </div>
     </section>
   );

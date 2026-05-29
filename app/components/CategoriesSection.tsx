@@ -7,6 +7,7 @@ import { gsap } from "gsap";
 interface Category {
   name: string;
   description: string;
+  image: string;
   materials?: string[];
   karats?: string[];
   gems?: string[];
@@ -17,6 +18,7 @@ const categories: Category[] = [
     name: "Anillos de Grados",
     description:
       "Creamos joyas, fusionando la materia artesanal con los materiales más sublimes para inmortalizar sus momentos especiales.",
+    image: "/cardimage.png",
     materials: ["Oro amarillo", "Oro blanco", "Oro rosado", "Plata Ley .925"],
     karats: ["10k", "14k", "18k"],
     gems: ["Diamante", "Rubí", "Esmeralda", "Zafiro", "Alejandrita", "Circón"],
@@ -24,43 +26,50 @@ const categories: Category[] = [
   {
     name: "Anillos de compromisos",
     description: "Anillos únicos para momentos inolvidables.",
+    image: "/Anillos compromiso AUGE.png",
     materials: ["Oro amarillo", "Oro blanco", "Platino"],
     karats: ["14k", "18k"],
     gems: ["Diamante", "Zafiro", "Esmeralda"],
   },
-  {
-    name: "Aros de Boda",
-    description: "Simboliza tu amor eterno con nuestros aros de boda.",
-    materials: ["Oro amarillo", "Oro blanco", "Platino"],
-    karats: ["14k", "18k"],
-  },
+  // {
+  //   name: "Aros de Boda",
+  //   description: "Simboliza tu amor eterno con nuestros aros de boda.",
+  //   image: "/cardimage.png",
+  //   materials: ["Oro amarillo", "Oro blanco", "Platino"],
+  //   karats: ["14k", "18k"],
+  // },
   {
     name: "Cadenas",
     description: "Cadenas elegantes para cualquier ocasión.",
+    image: "/Cadenas AUGE.png",
     materials: ["Oro amarillo", "Oro blanco", "Plata"],
     karats: ["10k", "14k", "18k"],
   },
   {
     name: "Pulseras",
     description: "Pulseras únicas que expresan tu estilo.",
+    image: "/Pulseras AUGE.png",
     materials: ["Oro amarillo", "Oro blanco", "Plata"],
     karats: ["10k", "14k", "18k"],
   },
   {
     name: "Esclavas",
     description: "Esclavas de lujo para ocasiones especiales.",
+    image: "/Esclavas AUGE.png",
     materials: ["Oro amarillo", "Oro blanco", "Platino"],
     karats: ["14k", "18k"],
   },
   {
     name: "Dijes",
     description: "Dijes personalizados con significado.",
+    image: "/Cruz AUGE.png",
     materials: ["Oro amarillo", "Oro blanco", "Plata"],
     karats: ["10k", "14k", "18k"],
   },
   {
     name: "Fabricación personalizada",
     description: "Diseñamos tu joya única a medida.",
+    image: "/cardimage.png",
     materials: ["Oro amarillo", "Oro blanco", "Oro rosado", "Platino"],
     karats: ["10k", "14k", "18k"],
   },
@@ -127,9 +136,16 @@ export default function CategoriesSection() {
           >
             <button
               onClick={() => setSelectedCategory(category.name)}
-              className="text-left text-base px-7 py-4 font-medium w-full"
+              className="text-left text-base px-7 py-4 font-medium w-full flex items-center justify-between"
             >
-              {category.name}
+              <span className="flex items-center gap-1">
+                {category.name}
+                <span className={`text-sm transition-transform duration-300 ${selectedCategory === category.name ? 'rotate-90' : 'rotate-0'}`}>
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </span>
+              </span>
             </button>
             <div
               ref={(el) => {
@@ -211,9 +227,16 @@ export default function CategoriesSection() {
               >
                 <button
                   onClick={() => setSelectedCategory(category.name)}
-                  className="text-left text-base px-7 py-4 w-full"
+                  className="text-left text-base px-7 py-4 font-medium w-full flex items-center justify-between"
                 >
-                  {category.name}
+                  <span className="flex items-center gap-1">
+                    {category.name}
+                    <span className={`text-sm transition-transform duration-300 ${selectedCategory === category.name ? 'rotate-0' : 'rotate-90'}`}>
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </span>
+                  </span>
                 </button>
 
                 <div
@@ -285,11 +308,12 @@ export default function CategoriesSection() {
         <div className="hidden md:flex w-1/2 relative items-center justify-center p-8">
           <div className="relative w-full h-full rounded-3xl overflow-hidden">
             <Image
-              src="/cardimage.png"
+              key={selectedCategory}
+              src={categories.find((c) => c.name === selectedCategory)?.image ?? "/cardimage.png"}
               alt={selectedCategory}
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
-              className="object-cover"
+              className="object-cover transition-opacity duration-500"
             />
           </div>
         </div>

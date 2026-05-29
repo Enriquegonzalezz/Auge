@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { gsap } from "gsap";
 
@@ -17,6 +17,8 @@ const galleryItems = [
 
 export default function MidSection() {
   const scrollHelperRef = useRef<HTMLDivElement>(null);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     const helper = scrollHelperRef.current;
@@ -102,7 +104,11 @@ export default function MidSection() {
           {galleryItems.map((item) => (
             <div
               key={item.id}
-              className="snap-start shrink-0 relative rounded-sm overflow-hidden bg-zinc-100 w-[200px] h-[180px] md:w-[300px] md:h-[270px]"
+              className="snap-start shrink-0 relative rounded-sm overflow-hidden bg-zinc-100 w-[200px] h-[180px] md:w-[300px] md:h-[270px] cursor-pointer"
+              onClick={() => {
+                setSelectedImage(item.src);
+                setIsModalOpen(true);
+              }}
             >
               <Image
                 src={item.src}
@@ -116,6 +122,46 @@ export default function MidSection() {
         </div>
         </div>
       </div>
+
+      {/* Modal */}
+      {isModalOpen && selectedImage && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 backdrop-blur-md transition-opacity duration-300"
+          onClick={() => {
+            setIsModalOpen(false);
+            setSelectedImage(null);
+          }}
+        >
+          <div
+            className="flex flex-col rounded-2xl overflow-hidden shadow-2xl transition-all duration-300 ring-1 ring-white/10"
+            style={{ maxWidth: "min(560px, 88vw)", maxHeight: "85vh" }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="relative rounded-t-2xl overflow-hidden" style={{ maxHeight: "75vh" }}>
+              <Image
+                src={selectedImage}
+                alt="Gallery image"
+                width={800}
+                height={800}
+                className="object-contain w-full h-full"
+                style={{ maxHeight: "75vh" }}
+              />
+            </div>
+            <div className="flex items-center justify-between px-6 py-3 bg-[#1A1A1A] rounded-b-2xl">
+              <span className="text-white text-sm">Galería</span>
+              <button
+                onClick={() => {
+                  setIsModalOpen(false);
+                  setSelectedImage(null);
+                }}
+                className="text-white text-sm hover:text-zinc-300 transition-colors"
+              >
+                Cerrar
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
