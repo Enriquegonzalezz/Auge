@@ -55,7 +55,7 @@ const categories: Category[] = [
   {
     name: "Esclavas",
     description: "Esclavas de lujo para ocasiones especiales.",
-    image: "/Esclavas AUGE.png",
+    image: "/Eslcavas AUGE.png",
     materials: ["Oro amarillo", "Oro blanco", "Platino"],
     karats: ["14k", "18k"],
   },
@@ -69,7 +69,7 @@ const categories: Category[] = [
   {
     name: "Fabricación personalizada",
     description: "Diseñamos tu joya única a medida.",
-    image: "/cardimage.png",
+    image: "/Avion AUGE.png",
     materials: ["Oro amarillo", "Oro blanco", "Oro rosado", "Platino"],
     karats: ["10k", "14k", "18k"],
   },
@@ -77,8 +77,20 @@ const categories: Category[] = [
 
 export default function CategoriesSection() {
   const [selectedCategory, setSelectedCategory] = useState(categories[0].name);
+  const [displayedImage, setDisplayedImage] = useState(categories[0].image);
+  const [imageOpacity, setImageOpacity] = useState(1);
   const contentRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
   const mobileContentRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
+
+  useEffect(() => {
+    const newImage = categories.find((c) => c.name === selectedCategory)?.image ?? "/cardimage.png";
+    setImageOpacity(0);
+    const timer = setTimeout(() => {
+      setDisplayedImage(newImage);
+      setImageOpacity(1);
+    }, 300);
+    return () => clearTimeout(timer);
+  }, [selectedCategory]);
 
   useEffect(() => {
     [contentRefs, mobileContentRefs].forEach((refs) => {
@@ -308,12 +320,12 @@ export default function CategoriesSection() {
         <div className="hidden md:flex w-1/2 relative items-center justify-center p-8">
           <div className="relative w-full h-full rounded-3xl overflow-hidden">
             <Image
-              key={selectedCategory}
-              src={categories.find((c) => c.name === selectedCategory)?.image ?? "/cardimage.png"}
+              src={displayedImage}
               alt={selectedCategory}
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
-              className="object-cover transition-opacity duration-500"
+              className="object-cover"
+              style={{ opacity: imageOpacity, transition: "opacity 0.3s ease" }}
             />
           </div>
         </div>

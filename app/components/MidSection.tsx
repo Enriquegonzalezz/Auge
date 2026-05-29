@@ -143,7 +143,7 @@ export default function MidSection() {
                 alt="Gallery image"
                 width={800}
                 height={800}
-                className="object-contain w-full h-full"
+                className="object-cover w-full h-full"
                 style={{ maxHeight: "75vh" }}
               />
             </div>
