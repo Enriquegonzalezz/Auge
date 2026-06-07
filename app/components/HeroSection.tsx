@@ -35,7 +35,7 @@ export default function HeroSection() {
           >
             Productos
           </a>
-          <Image src="/logo.svg" alt="AUGE" width={55} height={34} priority style={{ width: "auto", height: "auto" }} />
+          <Image src="/logo.webp" alt="AUGE" width={80} height={60} priority style={{ width: "auto", height: "auto" }} />
           <a
             href="#galeria"
             className="hidden md:block text-white text-base tracking-[0.2em] uppercase font-medium hover:text-white/70 transition-colors"

@@ -21,7 +21,7 @@ const categories: Category[] = [
     image: "/cardimage.png",
     materials: ["Oro amarillo", "Oro blanco", "Oro rosado", "Plata Ley .925"],
     karats: ["10k", "14k", "18k"],
-    gems: ["Diamante", "Rubí", "Esmeralda", "Zafiro", "Alejandrita", "Circón"],
+    gems: ["Diamante", "Rubí", "Esmeralda", "Zafiro", "Moisanita", "Circón"],
   },
   {
     name: "Anillos de compromisos",
